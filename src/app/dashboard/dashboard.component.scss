@@ -1,0 +1,199 @@
+/********************* Material Icons *********************/
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
+
+/********************* _varaliable *********************/
+// Color
+$color-1: #343090;
+$color-2: #5f59f7;
+$color-3: #6592fd;
+$color-4: #6592fd;
+$color-5: #8c61ff;
+
+// Spacing
+$padding-y: 0px 50px;
+$menubar-height: 60px;
+
+
+@mixin transition {
+  transition: all 0.2s linear;
+}
+
+
+// background: #f1f5f9;
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+:host ::ng-deep {
+  font-family: metropolis-regular;
+
+  .dashboard__container {
+    .side__menu__bar {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 250px;
+      min-height: 100vh;
+      background: $color-2;
+      z-index: 100;
+      @include transition;
+      padding-left: 10px;
+
+      &__top {
+        padding: 20px 0px;
+
+        a {
+          color: #f1f5f9;
+          display: inline-block;
+          width: 250px;
+          height: 100%;
+          font-size: 2.2rem;
+
+          span:nth-child(1) {
+            margin-right: 1rem;
+          }
+        }
+      }
+
+      ul.menu__list {
+        margin-top: 30px;
+        // border: 1px solid $color-4;
+        width: 100%;
+
+        & > li {
+          display: block;
+          width: 101%;
+          margin-bottom: 5px;
+
+          a {
+            color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            font-size: 1rem;
+            padding: 15px 0px;
+            @include transition();
+            position: relative;
+
+            span:nth-child(1) {
+              font-size: 1.8rem;
+              margin-right: 1rem;
+              padding-left: 8px;
+            }
+
+            &:hover {
+              background: #f1f5f9;
+              border-bottom-left-radius: 100px;
+              border-top-left-radius: 100px;
+              color: $color-1;
+            }
+          }
+        }
+
+        &__sub {
+          margin-left: 10px;
+          margin-top: 5px;
+          height: 0px;
+          position: static;
+          overflow: hidden;
+          transition: all 0.3s ease-in !important;
+
+          li {
+            margin-bottom: 5px;
+
+            a {
+              color: #f1f5f9;
+              display: flex;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+              // font-size: 1rem;
+              padding: 15px 0px;
+              @include transition();
+              position: relative;
+
+              span:nth-child(1) {
+                font-size: 1.2rem;
+                margin-right: 1rem;
+                padding-left: 8px;
+              }
+
+              span:nth-child(2) {
+                font-size: .8rem;
+                margin-right: 1rem;
+                padding-left: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .main__top {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      margin-left: 250px;
+      width: calc(100% - 250px);
+      height: 60px;
+      z-index: 100;
+      background: #f1f5f9;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.26);
+      @include transition;
+    }
+
+    .main__content {
+      margin-top: 60px;
+      margin-left: 250px;
+      min-height: calc(100vh - 60px);
+      @include transition;
+      background: #f1f5f9;
+      padding: 1rem;
+    }
+  }
+}
+
+a.menu__link.active {
+  background: #f1f5f9;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    right: 0px;
+    height: 17px;
+    width: 6px;
+    background: #f1f5f9;
+    transform: rotate(40deg);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -9px;
+    right: 0px;
+    height: 17px;
+    width: 6px;
+    background: #f1f5f9;
+    transform: rotate(-40deg);
+  }
+
+  span {
+    color: $color-1;
+  }
+}

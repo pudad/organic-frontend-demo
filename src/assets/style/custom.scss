@@ -1,0 +1,49 @@
+
+
+// COLOR
+$blue: #394AEB;
+$bg: #F1F6F7;
+$lightblue: #C2DBE7;
+$white: #FFFFFF;
+$f_h_color: #222;
+$f_t_color: #777;
+$footer_color: #002347;
+
+
+
+/********************* ResponeSive *********************/
+
+// Small devices (landscape phones, 576px and up) content max-width: 540px
+@mixin mobile {
+    @media screen and (min-width: 576px) {
+      @content;
+    }
+  }
+  
+  // Medium devices (tablets, 768px and up) content max-width: 720px
+  @mixin tablets {
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  
+  // Large devices (desktops, 992px and up) content max-width: 960px
+  @mixin desktops {
+    @media screen and (min-width: 992px) {
+      @content;
+    }
+  }
+  
+  // X-Large devices (large desktops, 1200px and up) content max-width: 1140px
+  @mixin lgDesktops {
+    @media screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+  
+  // XX-Large devices (larger desktops, 1400px and up) content max-width: 1320px
+  @mixin ExlgDesktops {
+    @media screen and (min-width: 1400px) {
+      @content;
+    }
+  }

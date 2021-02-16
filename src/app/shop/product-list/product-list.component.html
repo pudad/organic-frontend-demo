@@ -1,0 +1,86 @@
+<div class="wrap">
+    <ul class="category">
+        <li><a href="#">All</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Acce</a></li>
+        <li><a href="#">Elect</a></li>
+    </ul>
+
+    <div class="btnGroup">
+        <div class="btn" (click)="showFilter()"> <i class="fas fa-filter"></i> <span>Filter</span></div>
+        <div class="btn" (click)="showSearch()"> <i [class]="toggelIconSearch"></i> <span>Search</span></div>
+    </div>
+
+    <ul [ngClass]="{'toggleFil': toggleFilter}" (click)="toggleFilter = !toggleFilter" class="filter__price">
+        <!-- <span>Price</span> -->
+        <li class="filter_price">$0.00 - $50.00</li>
+        <li class="filter_price">$50.00 - $100.00</li>
+        <li class="filter_price">$100.00 - $150.00</li>
+        <li class="filter_price">$150.00 - $200.00</li>
+        <li class="filter_price">$200.00+</li>
+    </ul>
+
+    <ul [ngClass]="{'toggleSear': toggleSearch}" class="filter__search">
+        <li>
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search" (keyenter)="toggleSearch = !toggleSearch">
+        </li>
+    </ul>
+
+    <!-- Product Items -->
+    <product-items *ngFor="let product of Products" [product]="product" (onClickView)="onClickView($event)"></product-items>
+
+</div>
+
+
+<div class="model__view__product" [ngClass]="{'showModal': modal}">
+
+    <div class="btnCloseModal" (click)="onClickCloseModal()">
+        <i class="fas fa-times"></i>
+    </div>
+
+    <div class="wrap">
+         <!-- images view -->
+        <div class="images__view">
+
+            <div class="images__mini">
+                <img *ngFor="let image of Product?.imagesUrl" src="{{image}}" alt="" (click)="setImageModalMain(image)">
+            </div>
+            <div class="images__main">
+                <img [src]="imageModalMain" alt="">
+            </div>
+
+        </div>
+
+        <!-- detail product -->
+        <div class="detail__product">
+            <h2>
+                Lightweight Jacket
+            </h2>
+            <strong>
+                $58.79 
+            </strong>
+            <p>
+                Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat. 
+            </p>
+            <div class="quality">
+                <div class="decrease" (click)="decrease()">
+                    <i class="fas fa-minus"></i>
+                </div>
+                <div class="count">
+                    <span> {{ counterQty }} </span>
+                </div>
+                <div class="increase" (click)="increase()">
+                    <i class="fas fa-plus"></i>
+                </div>
+            </div>
+            <div class="btnAddToCart" (click)="createCart(Product._id)">
+                <span>ADD TO CART</span>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

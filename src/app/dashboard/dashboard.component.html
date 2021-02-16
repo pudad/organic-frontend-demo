@@ -1,0 +1,86 @@
+<div class="dashboard__container">
+
+    <div class="side__menu__bar" [ngStyle]="toggleSidebar()">
+  
+  
+      <div class="side__menu__bar__top">
+        <a [routerLink]="['/dashboard']" title="Home Dashboard">
+          <span class="lab la-accusoft"></span>
+          <span *ngIf="!isToggle">Accusoft</span>
+        </a>
+      </div>
+  
+      <ul class="menu__list">
+        <li>
+          <a 
+            [routerLink]="['/dashboard']" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}" class="menu__link"
+            title="Dashboard">
+            <span class="las la-tachometer-alt"></span>
+            <span *ngIf="!isToggle">Dashboard</span>
+          </a>
+        </li>
+        <li >
+          <a href="" class="menu__link" (click)="toggleSubmenu($event)" title="Manager Product">
+            <span class="las la-cubes"></span>
+            <span *ngIf="!isToggle">Manager Product</span>
+          </a>
+          <ul class="menu__list__sub" [ngStyle]="showSubmenu">
+            <li>
+              <a 
+              [routerLink]="['/dashboard/products']" 
+              routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}" class="menu__link"
+              title="Add Category">
+                <span class="las la-circle"></span>
+                <span>All Product</span>
+              </a>
+            </li>
+            <li>
+              <a 
+              [routerLink]="['/dashboard/add-product']" 
+              routerLinkActive="active" 
+              [routerLinkActiveOptions]="{exact: true}" class="menu__link"
+              title="Add Category">
+                <span class="las la-plus"></span>
+                <span>Add Product</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a 
+            [routerLink]="['/dashboard/account']" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}" class="menu__link"
+            title="Account">
+            <span class="las la-user-cog"></span>
+            <span *ngIf="!isToggle">Account</span>
+          </a>
+        </li>
+      </ul>
+  
+  
+  
+  
+  
+  
+    </div>
+  
+    <div class="main">
+  
+      <div class="main__top" [ngStyle]="toggleMainTop()">
+        <button (click)="isToggle = !isToggle">toggle side</button>
+      </div>
+  
+      <div class="main__content" [ngStyle]="toggleMainTop()">
+        
+        
+        <router-outlet></router-outlet>
+  
+  
+      </div>
+      
+    </div>
+  </div>

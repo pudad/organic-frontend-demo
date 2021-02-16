@@ -1,0 +1,96 @@
+@import '../../assets/style/custom.scss';
+
+
+:host {
+  margin-top: 40px;
+  div.container__table {
+    overflow-x: auto;
+    border: 1px solid gray;
+    width: 95%;
+    margin: 20px auto;
+    table {
+        border-collapse: collapse;
+        width: 100%;
+
+        th, td {
+            text-align: left;
+            padding: 40px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        td.column2 {
+            line-height: 1.6;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+
+    }
+    
+
+}
+
+.quality {
+    display: flex;
+    place-content: center;
+
+    .increase,
+    .decrease,
+    .count {
+      width: 45px;
+      height: 40px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      text-align: center;
+      line-height: 40px;
+      transition: background 0.4s linear;
+
+      i {
+        font-size: 1.3rem;
+      }
+    }
+
+    .increase,
+    .decrease {
+      &:hover {
+        background: $blue;
+        cursor: pointer;
+
+        i {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  
+.total__container {
+  border: 1px solid gray;
+  width: 95%;
+  margin: 20px auto;
+  margin-top: 50px;
+  padding: 40px 10px;
+
+  .wrap .wrapItem {
+    display: flex;
+
+    .leftArea {
+      width: 25%;
+    }
+
+    .rightArea {
+      width: 75%;
+    }
+  }
+
+  .lineDot {
+    width: 100%;
+    border: 2px dashed gray;
+    margin: 30px 0px;
+  }
+
+  .price,
+  .total {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+}

@@ -1,0 +1,34 @@
+<div class="form-container">
+    <form [formGroup]="form" (submit)="onSubmitForm($event)">
+        <div class="form-group">
+            <input type="text" placeholder="Full Name" formControlName="fullname">
+        </div>
+        <div formGroupName="address">
+            <div class="form-group">
+                <input type="text" placeholder="Address" formControlName="address">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Sub District" formControlName="subDistrict">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="District" formControlName="district">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Province" formControlName="province">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Postcode" formControlName="postcode">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Telephone" formControlName="tel">
+            </div>
+            <div class="form-group">
+                <textarea rows="6" placeholder="Etc." formControlName="etc"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">PROCEED TO CHECKOUT</button>
+        </div>
+    </form>
+</div>

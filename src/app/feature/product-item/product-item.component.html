@@ -1,0 +1,18 @@
+<div class="container__images">
+    <img src="{{ product?.imagesUrl[0] }}" alt="">
+    <div (click)="viewProduct($event, product._id)">
+            <span>View</span>
+    </div>
+</div>
+
+<div class="container__detail">
+    <div class="container__detail__left">
+        <a href="#" (click)="viewProduct($event, product._id)">
+            <span>{{ product?.pName }}</span> <br>
+            <span>{{ product?.pPrice | currency:'B' }}</span>
+        </a>
+    </div>
+    <div class="container__detail__right">
+        <i class="far fa-heart"></i>
+    </div>
+</div>

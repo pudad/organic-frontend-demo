@@ -1,0 +1,147 @@
+@import '../../../assets/style/custom.scss';
+
+
+// HOST
+:host {
+    width: 90%;
+    font-family: metropolis-regular;
+    font-weight: bold;
+    box-sizing: border-box;
+  
+    // Alert Error
+    .alertError {
+      background: $white;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+  
+      span {
+        color: red;
+      }
+    }
+  
+    // Form
+    form {
+      padding: 20px;
+      background: $white;
+      border-radius: 5px;
+      box-sizing: border-box;
+  
+      h1 {
+        margin: 10px 0px;
+        text-align: center;
+      }
+  
+      .form-group {
+        width: 100%;
+        height: 50px;
+        margin-top: 30px;
+        overflow: visible;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+  
+        &:nth-child(4) {
+          border: none;
+          width: 100%;
+        }
+  
+        input[type="text"],
+        input[type="password"] {
+          width: 100%;
+          height: 100%;
+          background: #ffffff;
+          outline: none;
+          border: none;
+          border-radius: 5px;
+          padding: 0px 10px;
+          box-sizing: border-box;
+        //   @include font-16px-regular;
+          border: 1px solid $lightblue;
+          position: relative;
+  
+          &:focus + span,
+          &:valid + span {
+            bottom: 80%;
+            background: #ffffff;
+            font-size: 16px;
+            outline: none;
+          }
+        }
+  
+        // class for add or remove dynamic.
+        .btnValid {
+          cursor: pointer !important;
+          background: $blue !important;
+          transition: all 0.3s linear;
+  
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+  
+        span {
+          position: absolute;
+          left: 10px;
+          bottom: 14px;
+          font-size: 14px;
+          transition: all 0.3s ease;
+          color: $f_t_color;
+          user-select: none;
+          pointer-events: none;
+        }
+  
+        .btn {
+          border: 1px solid $lightblue;
+          width: 100%;
+          background: #2aa9528f;
+          border-radius: 5px;
+          height: 50px;
+        //   @include font-16px-semiBold;
+          color: $white;
+  
+          &:hover {
+            cursor: no-drop;
+          }
+        }
+      }
+  
+      .validator__box {
+        font-size: 10px;
+        li {
+          list-style: none;
+          color: red;
+        }
+      }
+  
+      .option {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        a {
+          font-size: 12px;
+          color: $f_h_color;
+        }
+      }
+    }
+  }
+  
+  // responesive
+  @include tablets {
+    :host {
+      width: 420px;
+      font-family: metropolis-regular;
+      font-weight: bold;
+      box-sizing: border-box;
+  
+      form {
+        text-align: center;
+        padding: 20px;
+        background: $white;
+      }
+    }
+  }
+  

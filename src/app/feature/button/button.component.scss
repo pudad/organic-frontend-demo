@@ -1,0 +1,27 @@
+// COLOR
+$blue: #394AEB;
+$bg: #F1F6F7;
+$lightblue: #C2DBE7;
+$white: #FFFFFF;
+$f_h_color: #222;
+$f_t_color: #777;
+$footer_color: #002347;
+
+.container-button {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $blue;
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    color: $white;
+    font-size: 1.2rem;
+    transition: all .3s ease;
+
+    &:hover {
+        box-shadow: 1px 3px 5px $f_t_color;
+        cursor: pointer;
+    }
+}

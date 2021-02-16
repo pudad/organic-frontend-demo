@@ -1,0 +1,68 @@
+
+<!-- Alert -->
+<div class="alertError" *ngIf="!!errorMessage">
+    <span>{{ errorMessage }}</span>
+</div>
+
+
+<!-- FORM -->
+<form (ngSubmit)="onSubmitForm($event)" [formGroup]="form">
+  <div class="textHeader">
+    <h1>Sign In</h1>
+  </div>
+
+  <div>
+    <div class="form-group">
+      <input type="text" required="required" formControlName="email" />
+      <span>Email Address</span>
+    </div>
+    <!-- validator email -->
+    <div
+      class="validator__box"
+      *ngIf="form.get('email').touched && form.get('email').invalid"
+    >
+      <li *ngIf="form.get('email').errors.required">
+        - Email Name is required.
+      </li>
+      <li *ngIf="form.get('email').errors.email">
+        - Email must be a valid Email Address.
+      </li>
+    </div>
+  </div>
+
+  <!-- validator password -->
+  <div>
+    <div class="form-group">
+      <input type="password" required="required" formControlName="password" />
+      <span>Password</span>
+    </div>
+    <div
+      class="validator__box"
+      *ngIf="form.get('password').touched && form.get('password').invalid"
+    >
+      <li *ngIf="form.get('password').errors.required">
+        - password is required
+      </li>
+      <li *ngIf="form.get('password').errors.minlength">
+        - password must be a letters 6 charector
+      </li>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button
+      class="btn"
+      type="submit"
+      [class.btnValid]="form.valid"
+      [disabled]="form.invalid"
+    >
+      Sign In
+    </button>
+  </div>
+
+  <div class="option">
+    <a href="#">Forget Password?</a>
+    <a [routerLink]="['/auth/sign-up']">Sign up for FREE !!!</a>
+  </div>
+</form>
+

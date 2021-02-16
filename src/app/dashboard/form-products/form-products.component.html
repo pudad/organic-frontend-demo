@@ -1,0 +1,106 @@
+<div class="add__product__container">
+
+    <form (submit)="onSubmitForm($event)" [formGroup]="form" >
+
+        <div class="form__group">
+            <div class="form__group__header">
+                <span>Product Information</span>
+            </div>
+            <div class="form__group__body">
+                <label for="pName">Product Name</label>
+                <input type="text" id="pName" formControlName="pName">
+            </div>
+            
+        </div>
+
+
+        <div class="form__group">
+            <div class="form__group__header">
+                <span>Product Category</span>
+            </div>
+            <div class="form__group__body">
+                <label for="pCategory">Category</label>
+                <select name="" id="pCategory" formControlName="pCategory">
+                    <option value="">Select Category</option>
+                    <option [value]="item" *ngFor="let item of [1,2,3,4]; let i=index">Category {{ item }}</option>
+                </select>
+            </div>
+            
+        </div>
+
+
+        <div class="form__group">
+            <div class="form__group__header">
+                <span>Product Price</span>
+            </div>
+            <div class="form__group__body">
+                <label for="pPrice">Product Price</label>
+                <input type="number" id="pPrice" formControlName="pPrice">
+            </div>
+
+            <div class="form__group__option">
+                <div class="sale">
+                    <label for="pSale">Sale Price</label>
+                    <input type="number" id="pSale" formControlName="pPriceSale">
+                </div>
+                <div class="cost">
+                    <label for="pCost">Cost Price</label>
+                    <input type="number" id="pCost" formControlName="pCost">
+                </div>
+                <div class="quality">
+                    <label for="pQuality">Quality</label>
+                    <input type="number" id="pQuality" formControlName="qty">
+                </div>
+            </div>
+            
+        </div>
+
+
+        <div class="form__group">
+            <div class="form__group__header">
+                <span>Product Images</span>
+                <span>6 unit</span>
+            </div>
+            <div class="form__group__body">
+                
+                <input type="file" [hidden]="true" #imageFile (change)="selectImages($event)" multiple="true">
+                <div class="image_box">
+                    <img [src]="image" *ngFor="let image of imageSelect" alt="">
+                </div>
+
+                <div class="btnImages" (click)="imageFile.click()">
+                    <span>Add Images</span>
+                </div>
+
+
+            </div>
+            
+        </div>
+
+
+        <div class="form__group">
+            <div class="form__group__header">
+                <span>Product Detail</span>
+            </div>
+            <div class="form__group__body">
+                
+                <label for="desc">Description</label>
+                <textarea style="resize: none;" name="" id="" cols="30" rows="10" formControlName="pDetail"></textarea>
+
+
+            </div>
+            
+        </div>
+
+
+
+
+        <div class="form__group__btn">
+                <button type="submit">{{ textButton }}</button>
+                <button type="submit">Cancel</button>
+            
+        </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,44 @@
+<div class="slider">
+    <div class="slides">
+      <input type="radio" name="radio-btn" id="radio1">
+      <input type="radio" name="radio-btn" id="radio2">
+      <input type="radio" name="radio-btn" id="radio3">
+
+      <div class="slide first">
+        <img src="{{carousel[0].imageUrl}}" alt="">
+        <div class="text">
+            <div class="btn" (click)="goToShop()">Shop Now</div>
+            <h1>{{carousel[0].col}}</h1>
+            <p>{{carousel[0].new}}</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="{{carousel[1].imageUrl}}" alt="">
+        <div class="text">
+            <div class="btn">Shop Now</div>
+            <h1>{{carousel[1].col}}</h1>
+            <p>{{carousel[1].new}}</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="{{carousel[2].imageUrl}}" alt="">
+        <div class="text">
+            <div class="btn">Shop Now</div>
+            <h1>{{carousel[2].col}}</h1>
+            <p>{{carousel[2].new}}</p>
+        </div>
+      </div>
+
+      <div class="navigation-auto">
+        <div class="auto-btn1"></div>
+        <div class="auto-btn2"></div>
+        <div class="auto-btn3"></div>
+      </div>
+
+      <div class="navigation-manul">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+      </div>
+    </div>
+  </div>

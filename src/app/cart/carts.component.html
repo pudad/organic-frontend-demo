@@ -1,0 +1,94 @@
+<menu></menu>
+
+<h1 style="text-decoration: underline; margin-left: 10px;">CART</h1>
+
+<!-- TABLE -->
+<div *ngIf="!isEmtryCart else cartIsEmtry ">
+    <div class="container__table">
+        <table>
+            <tr>
+                <th>IMGAES</th>
+                <th>NAME</th>
+                <th>PRICE</th>
+                <th>QUANTITY</th>
+                <th>TOTAL</th>
+            </tr>
+            <tr *ngFor="let product of productInCarts; let proudctIndex=index">
+                <td>
+                    <div style="width: 80px;">
+                        <img src="{{ product.productId.imagesUrl[0] }}" width="100%" alt="">
+                    </div>
+                </td>
+                <td class="column2">
+                    <div style="width: 150px;">
+                        {{ product.productId.pName }}
+                    </div>
+                </td>
+                <td>
+                    {{ product.productId.pPrice | currency:'B' }}
+                </td>
+                <td>
+                    <div class="quality">
+                        <div class="decrease" (click)="decrease(proudctIndex, product.productId.pPrice)">
+                            <i class="fas fa-minus"></i> 
+                            <!-- - -->
+                        </div>
+                        <div class="count">
+                            <span> 
+                                {{ productInCarts[proudctIndex].product_qty }} 
+                            </span>
+                        </div>
+                        <div class="increase" (click)="increase(proudctIndex, product.productId.pPrice)">
+                            <i class="fas fa-plus"></i>
+                            <!-- + -->
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    {{ productInCarts[proudctIndex].product_totalPrice | currency:'B' }}
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="total__container">
+        <h2>CART TOTALS</h2>
+
+        <!-- TOTAL PRICE -->
+        <div class="wrap">
+            <div class="subtotal wrapItem">
+                <div class="leftArea">
+                    <span class="total">Vat 3%:</span> <br>
+                    <span class="total">Subtotal:</span> <br>
+                    <span class="total">Net Price:</span>
+                </div>
+                <div class="rightArea">
+                    <span class="price">{{ vat3 | currency:'B' }}</span> <br>
+                    <span class="price">{{ totolPrice | currency:'B' }}</span> <br>
+                    <span class="price">{{ allPrice | currency:'B' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="lineDot"></div>
+    
+        <!-- SHOPPING ADDRESS -->
+        <div class="wrap">
+            <div class="shopping wrapItem">
+                <div class="leftArea">
+                    <span class="total">Shipping:</span>
+                </div>
+                <div class="rightArea">
+                    <form-address (submitFormAddress)="onSubmitForm($event)"></form-address>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #cartIsEmtry>
+    <div class="container-emtry">
+        <h1>ไม่มีสินค้าอยู่ในรถเข็น</h1>
+        <a [routerLink]="['/shop']">เลือกซื้อสินค้า</a>
+    </div>
+</ng-template>
